@@ -3,4 +3,5 @@ public class Monster {
     private int reach;
     private Hex lair;
 
+    //TODO create Monster and children
 }
