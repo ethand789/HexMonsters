@@ -14,7 +14,7 @@ public class Main {
             address = "Default.txt";
         }
 
-        //ArrayList<ArrayList<Hex>> map = initialize(address);
+        ArrayList<ArrayList<Hex>> map = initialize(address);
     }
 
     private static ArrayList<ArrayList<Hex>> initialize(String address){
@@ -26,21 +26,24 @@ public class Main {
         ArrayList<Hex> row = new ArrayList<>();
         File file = new File(address);
 
-        //TODO make the file reader
         //TODO idiot proof the file reader
 
-        //read text file and generate hexmap
+        //read text file and generate hex map
         try {
             Scanner read = new Scanner(file);
 
             while (read.hasNextLine()) {
-                System.out.println(read.nextLine());
+                String line = read.nextLine();
+                System.out.println(line);
+
+                //TODO turn Strings into hex map
+
             }
         }catch(FileNotFoundException exception){
             System.out.println("File was not found. Please try again.");
         }
 
-
+        //set all adjacent hexes
         for(int i=0; i< result.size(); i++){
             for(int j=0; j< result.get(i).size(); j++){
                 setAdjacent(result,i,j);
