@@ -1,3 +1,5 @@
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -6,13 +8,25 @@ public class Main {
 
         //get text file to generate map
         Scanner in = new Scanner(System.in);
-        System.out.println("Please enter the text file address to generate a map from (Leave blank to use default): \n");
+        System.out.println("Please enter the text file address to generate a map from (Leave blank to use default): ");
         String address = in.nextLine();
         if(address.equals("")) {
-            address = "src/Default.txt";
+            address = "Default.txt";
+        }
+        File file = new File(address);
+
+        //read text file and generate hexmap
+        try {
+            Scanner read = new Scanner(file);
+
+            while (read.hasNextLine()) {
+                System.out.println(read.nextLine());
+            }
+        }catch(FileNotFoundException exception){
+            System.out.println("File was not found. Please try again.");
         }
 
-        ArrayList<ArrayList<Hex>> map = initialize(address);
+        //ArrayList<ArrayList<Hex>> map = initialize(address);
     }
 
     private static ArrayList<ArrayList<Hex>> initialize(String address){
