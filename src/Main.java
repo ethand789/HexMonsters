@@ -13,7 +13,21 @@ public class Main {
         if(address.equals("")) {
             address = "Default.txt";
         }
+
+        //ArrayList<ArrayList<Hex>> map = initialize(address);
+    }
+
+    private static ArrayList<ArrayList<Hex>> initialize(String address){
+        /**
+         * input: the address of a text file used to generate a map
+         * output: a 2d ArrayList of hexes representing a hex map
+         */
+        ArrayList<ArrayList<Hex>> result = new ArrayList<>();
+        ArrayList<Hex> row = new ArrayList<>();
         File file = new File(address);
+
+        //TODO make the file reader
+        //TODO idiot proof the file reader
 
         //read text file and generate hexmap
         try {
@@ -26,20 +40,6 @@ public class Main {
             System.out.println("File was not found. Please try again.");
         }
 
-        //ArrayList<ArrayList<Hex>> map = initialize(address);
-    }
-
-    private static ArrayList<ArrayList<Hex>> initialize(String address){
-        /**
-         * input: the address of a text file used to generate a map
-         * output: a 2d ArrayList of hexes representing a hex map
-         */
-        ArrayList<ArrayList<Hex>> result = new ArrayList<>();
-        ArrayList<Hex> row = new ArrayList<>();
-        Scanner input = new Scanner(address);
-
-        //TODO make the file reader
-        //TODO idiot proof the file reader
 
         for(int i=0; i< result.size(); i++){
             for(int j=0; j< result.get(i).size(); j++){
