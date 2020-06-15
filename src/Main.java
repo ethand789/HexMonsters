@@ -1,4 +1,5 @@
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -24,12 +25,12 @@ public class Main {
          */
         ArrayList<ArrayList<Hex>> result = new ArrayList<>();
         ArrayList<Hex> row = new ArrayList<>();
-        File file = new File(address);
 
-        //TODO idiot proof the file reader
-
-        //read text file and generate hex map
         try {
+            //open text file
+            FileInputStream file = new FileInputStream(address);
+
+            //read text file and generate hex map
             Scanner read = new Scanner(file);
 
             while (read.hasNextLine()) {
@@ -42,6 +43,9 @@ public class Main {
         }catch(FileNotFoundException exception){
             System.out.println("File was not found. Please try again.");
         }
+
+        //TODO idiot proof the file reader
+
 
         //set all adjacent hexes
         for(int i=0; i< result.size(); i++){
