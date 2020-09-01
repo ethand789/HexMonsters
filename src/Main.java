@@ -36,13 +36,22 @@ public class Main {
                 System.out.println(line);
                 String[] hexes = line.split(" ");
                 for(String hex:hexes){
-
+                    ArrayList<Terrain> templist = new ArrayList<>();
+                    for(Terrain t : Terrain.values()) {
+                        if(hex.contains(t.getText())) {
+                            templist.add(t);
+                        }
+                    }
+                    Hex temp = new Hex(templist);
+                    row.add(temp);
                 }
-
-                //TODO turn Strings into hex map
+                result.add(row);
+                row = new ArrayList<>();
+                }
+            
 
             }
-        }catch(FileNotFoundException exception){
+        catch(FileNotFoundException exception){
             System.out.println("File was not found. Please try again.");
         }catch(Exception exception){
             System.out.println("something went wrong. please restart and try again.");

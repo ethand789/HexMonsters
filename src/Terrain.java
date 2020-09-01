@@ -1,5 +1,21 @@
 public enum Terrain {
 
-    MOUNTAIN, HILL, PLAIN, FORREST, COAST, OCEAN
+    MOUNTAIN ("M"),
+    HILL ("H"),
+    PLAIN ("P"),
+    FORREST ("F"),
+    COAST ("C"),
+    OCEAN ("O");
+
+    private final String text;
+    Terrain( String text){
+        this.text = text;
+    }
+
+    public String getText(){
+        return this.text;
+    }
+
+
 
 }
