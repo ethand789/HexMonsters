@@ -1,6 +1,4 @@
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -12,7 +10,7 @@ public class Main {
         System.out.println("Please enter the text file address to generate a map from (Leave blank to use default): ");
         String address = in.nextLine();
         if(address.equals("")) {
-            address = "Default.txt";
+            address = "src\\Default";
         }
 
         ArrayList<ArrayList<Hex>> map = initialize(address);
@@ -28,7 +26,7 @@ public class Main {
 
         try {
             //open text file
-            FileInputStream file = new FileInputStream(address);
+            File file = new File(address);
 
             //read text file and generate hex map
             Scanner read = new Scanner(file);
@@ -36,12 +34,18 @@ public class Main {
             while (read.hasNextLine()) {
                 String line = read.nextLine();
                 System.out.println(line);
+                String[] hexes = line.split(" ");
+                for(String hex:hexes){
+
+                }
 
                 //TODO turn Strings into hex map
 
             }
         }catch(FileNotFoundException exception){
             System.out.println("File was not found. Please try again.");
+        }catch(Exception exception){
+            System.out.println("something went wrong. please restart and try again.");
         }
 
         //TODO idiot proof the file reader
