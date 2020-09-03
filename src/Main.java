@@ -14,6 +14,10 @@ public class Main {
         }
 
         ArrayList<ArrayList<Hex>> map = initialize(address);
+        System.out.println("");
+
+        //populate map with monsters
+
     }
 
     private static ArrayList<ArrayList<Hex>> initialize(String address){
@@ -48,7 +52,7 @@ public class Main {
                 result.add(row);
                 row = new ArrayList<>();
                 }
-            
+
 
             }
         catch(FileNotFoundException exception){
